@@ -7,11 +7,20 @@ function loadItems(){
     }
 }
 
-// function checkTimes(time){
-//     for (var i = 9; i < 18; i++) {
-//         var text = document.getElementById(i);
-//     }
-// }
+function checkTimes(time){
+    for (var i = 9; i < 18; i++) {
+        var section = document.getElementById(i);
+        if(time > i){
+            $("."+i).addClass("past");
+        }
+        else if(time < i){
+            $("."+i).addClass("future");
+        }
+        else {
+            $("."+i).addClass("present");
+        }
+    }
+}
 
 $(".saveBtn").on("click",function(){
     var text = document.getElementById(this.value).value;
@@ -28,9 +37,9 @@ $.ajax({
     var dateString = response.dayOfTheWeek + ", " + month + " " + day;
     $("#currentDay").text(dateString);
 
-    var time = fullTime.slice(11,13);
+    var time = fullTime.slice(11,13)-1;
     console.log(time);
-    // checkTimes(time);
+    checkTimes(time);
 });
 
 loadItems();
