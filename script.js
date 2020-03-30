@@ -32,7 +32,7 @@ $(".saveBtn").on("click",function(){
 
 // API request
 $.ajax({
-    url: "http://worldclockapi.com/api/json/est/now",
+    url: "https://worldclockapi.com/api/json/est/now",
     method: "GET"
 }).then(function (response) {
     var fullTime = response.currentDateTime;
